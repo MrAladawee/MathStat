@@ -8,15 +8,15 @@ def mean_():
     return sum(Dataset['X']) / n
 
 def median_():
-    
+
     sorted_dataset = sorted(Dataset['X'])
     length = len(sorted_dataset)
-    
+
     if n % 2 == 1:
         result = sorted_dataset[length // 2]
     else:
         result = (sorted_dataset[length // 2 - 1] + sorted_dataset[length // 2]) / 2
-        
+
     return result
 
 def dispersion():
@@ -37,10 +37,10 @@ hist_max = math.ceil(max_arg)
 Delta = 1
 
 bins = [_ + 0.05 for _ in range(hist_min, hist_max + 1, Delta)]
-
+print(bins)
 plt.hist(Dataset['X'], bins = bins, color = 'grey', edgecolor = 'black')
 
-plt.title('Гистограмма прочности')
+plt.title('Гистограмма силы удара')
 plt.xlabel('Значения')
 plt.ylabel('Количество')
 
@@ -78,7 +78,7 @@ bins = [i + 0.05 for i in range(X0, X_max + 1, Delta)]
 plt.hist([Dataset_1['X'], Dataset_2['X']], bins=bins, density=True,
          color=colors, label=names)
 plt.legend()
-plt.xlabel('Предельная прочность')
+plt.xlabel('Сила удара')
 plt.ylabel('Частота (в долях)')
 plt.title('Гистограммы распределений в % для двух групп')
 plt.show()
