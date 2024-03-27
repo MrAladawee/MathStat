@@ -20,7 +20,7 @@ def median_():
     return result
 
 def dispersion():
-    return sum(math.pow((xi - mean), 2) for xi in Dataset['X']) / n
+    return sum(math.pow((xi - mean), 2) for xi in Dataset['X']) / (n - 1)
 
 def assim():
     return (1/n) * sum(math.pow((xi - mean), 3) for xi in Dataset['X']) / (math.pow(std_dev, 3))
@@ -50,11 +50,11 @@ plt.show()
 sorted_data = np.sort(Dataset['X'])
 n = len(sorted_data)
 
-cdf_values = np.arange(1, n + 1) / n
+cff_values = np.arange(1, n + 1) / n
 mean_x = np.mean(sorted_data)
 
 plt.figure(figsize=(10,6))
-plt.step(sorted_data, cdf_values, where='post')
+plt.step(sorted_data, cff_values, where='pre')
 plt.xlabel('Значения')
 plt.ylabel('Эмпирическая Функция Распределения')
 plt.title('Эмпирическая Функция Распределения данных')
